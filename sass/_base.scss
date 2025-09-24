@@ -1,0 +1,9 @@
+@use "sass:color";
+@use "variables";
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: lighten(variables.$primary-color, 10%);
+  color: variables.$text-color;
+}

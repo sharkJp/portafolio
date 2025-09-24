@@ -1,0 +1,17 @@
+@use "variables";
+
+.construction {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 120px;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+  }
+}
+
