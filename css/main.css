@@ -75,7 +75,8 @@ body {
   position: relative;
   left: 12%;
   text-align: center;
-  font-size: 12vw;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11vw;
   font-weight: bold;
   color: #fff;
   line-height: 1;
@@ -94,6 +95,7 @@ body {
 
 .inside-content h2 {
   font-size: 18rem;
+  font-family: "pokemon", sans-serif;
   margin-bottom: 1rem;
   color: #fff;
 }
@@ -138,56 +140,41 @@ body {
 }
 
 /* Pantallas medianas (tablets en horizontal, laptops pequeños) */
-@media screen and (max-width: 1024px) {
-  body {
-    font-size: 16px;
-    padding: 15px;
-  }
-}
 /* Pantallas pequeñas (tablets en vertical, celulares grandes) */
 @media screen and (max-width: 768px) {
-  .contenedor {
+  .title-container {
+    position: absolute;
+    inset: 0;
+    left: -7%;
+    top: -70% !important;
+  }
+  .title {
+    font-size: 14vw;
+    left: 5%;
+  }
+  .inside-content {
     width: 100%;
-    height: 100vh;
+    top: 25%;
   }
-  .contenedor-central {
+  .inside-content h2 {
+    position: absolute;
+    margin-top: -35%;
+    font-size: 10rem;
+  }
+  .inside-content p {
     width: 100%;
-    height: 85vh;
-  }
-  .puzlle {
-    width: 35%;
-    height: 40%;
-    opacity: 0.7;
-  }
-  .img {
-    width: 45%;
-    height: 100% !important;
-  }
-  .img img {
-    width: 100%;
-    height: 90%;
-  }
-  .redes-sociales {
-    width: 15%;
-    height: 100%;
+    font-size: 1.6rem;
+    margin-top: 10%;
+    margin-left: 18%;
   }
   .contenedor-reloj {
-    margin: 5px;
-    width: 80%;
-    height: 15vh;
+    position: absolute;
+    width: 52%;
+    margin-top: 80%;
+    margin-left: 45%;
   }
   #reloj {
-    width: 100%;
-    height: 60%;
-    font-size: 3rem;
-    color: #e88888;
-    letter-spacing: 3px;
-    padding: 10px 20px;
-    border-radius: 15px;
-    background: rgba(52, 73, 94, 0.4);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    font-size: 1.8rem;
   }
 }
 
