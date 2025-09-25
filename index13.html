@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Efecto Scroll Inmersivo</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.scene {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(to right, #0a4e08, #429752);
+}
+
+.title-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 16vw;
+  font-weight: bold;
+  color: white;
+  line-height: 1;
+}
+
+.inside-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+  max-width: 600px;
+}
+
+.inside-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.next-section {
+  height: 100vh;
+  background: #111;
+  padding: 2rem;
+}
+/* ... resto de tu CSS ... */
+
+/* Estilos para la imagen inmersiva */
+.inmersive-image {
+    width: 100%; /* O el tamaño inicial que desees */
+    max-width: 1000px;
+    height: auto;
+    transform: scale(1); /* Escala inicial */
+}
+  </style>
+</head>
+<body>
+
+  <section class="scene">
+    <div class="title-container">
+      <h1 class="title">Bienvenidos</h1>
+       <!-- <img src="./craneo3.png" alt="" class="inmersive-image"> -->
+    </div>
+    <div class="inside-content">
+      <!-- <h2>Colombia Mágica Studio</h2>
+      <p>Donde la Mágia cobra vida</p> -->
+      <img src="./assets/images/jhonge2.png" alt="" class="inmersive-image">
+    </div>
+  </section>
+
+  <!-- <section class="next-section">
+    <h2>Seguna  Sección</h2>
+    <p></p>
+  </section> -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- <script src="script.js"></script> -->
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+let tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".scene",
+    start: "top top",
+    end: "+=200%",
+    scrub: true,
+    pin: true
+  }
+});
+
+// Escalar la letra y simular acercamiento
+tl.to(".title", {
+  scale: 8,
+  duration: 1,
+  ease: "power2.out"
+});
+
+// Mostrar contenido interior y ocultar la letra
+tl.to(".inside-content", {
+  opacity: 1,
+  duration: 0.5
+}, "-=0.5");
+
+tl.to(".title-container", {
+  opacity: 0,
+  duration: 0.5
+}, "-=0.3");
+
+  </script>
+</body>
+</html>

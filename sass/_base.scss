@@ -4,6 +4,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: lighten(variables.$primary-color, 10%);
+  background: color.adjust(variables.$primary-color, $lightness: 10%);
+
   color: variables.$text-color;
 }

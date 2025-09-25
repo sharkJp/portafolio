@@ -20,159 +20,175 @@ body {
   animation: bounce 2s infinite;
 }
 
-.contenedor {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 1. Panel Fijo (Izquierda) */
+.panel-fijo {
+  position: fixed; /* ¡La clave para que no se mueva! */
+  top: 0;
+  left: 0;
+  width: var(--fixed-panel-width);
   height: 100vh;
-  background-color: #110946;
-}
-
-.contenedor-central {
+  background-color: linear-gradient(to right, #22084e, #18c4e2);
+  z-index: 10; /* Asegura que esté por encima de todo */
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
-  width: 100%;
-  height: 80vh;
-  background-color: #110946;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.puzlle {
-  width: 50%;
-  height: 70%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
-  grid-template-rows: repeat(3, 1fr); /* 3 filas */
-  margin: 40px;
-}
-
-.hijo {
-  background-image: url("../assets/images/web-construccion.jpg");
-  background-size: 300% 300%;
-  border: 0.1px solid #575656;
-  opacity: 0;
-  transform: scale(0.8);
-  animation: aparecer 1s forwards;
-  transition: all 0.4s ease;
-}
-
-/* posiciones */
-.hijo1 {
-  background-position: 0% 0%;
-  animation-delay: 0.2s;
-}
-
-.hijo2 {
-  background-position: 50% 0%;
-  animation-delay: 0.4s;
-}
-
-.hijo3 {
-  background-position: 100% 0%;
-  animation-delay: 0.6s;
-}
-
-.hijo4 {
-  background-position: 0% 50%;
-  animation-delay: 0.8s;
-}
-
-.hijo5 {
-  background-position: 50% 50%;
-  animation-delay: 1s;
-}
-
-.hijo6 {
-  background-position: 100% 50%;
-  animation-delay: 1.2s;
-}
-
-.hijo7 {
-  background-position: 0% 100%;
-  animation-delay: 1.4s;
-}
-
-.hijo8 {
-  background-position: 50% 100%;
-  animation-delay: 1.6s;
-}
-
-.hijo9 {
-  background-position: 100% 100%;
-  animation-delay: 1.8s;
-}
-
-/* Animación */
-@keyframes aparecer {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-/* 🔥 Efectos hover recomendados */
-.puzlle:hover .hijo:hover {
-  transform: scale(1.1) rotate(10deg); /* agranda y rota un poco */
-  z-index: 2; /* sobresale sobre los otros */
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7); /* resplandor */
-  filter: brightness(1.2); /* más brillante */
-}
-
-.img {
-  width: 35%;
-  height: 70%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* 1. Líneas horizontales */
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  /* 3. Tamaño del "azulejo" del patrón. Ajusta este número para hacer la malla más grande o más pequeña. */
-  background-size: 25px 25px;
-}
-
-.img img {
-  width: 280px;
+.panel-fijo img {
+  max-width: 100%;
   height: auto;
+  object-fit: contain;
 }
 
-.redes-sociales {
-  width: 15%;
-  height: 70%;
+/* 2. Contenedor del Scroll (Derecha) */
+.scroll-wrapper {
+  /* Mueve todo el contenido de scroll hacia la derecha */
+  margin-left: var(--fixed-panel-width);
+  width: calc(100% - var(--fixed-panel-width)); /* El ancho restante */
+}
+
+/* 3. Escena Inmersiva (Dentro del Scroll-Wrapper) */
+.scene {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background-color: linear-gradient(to right, #22084e, #18c4e2);
+}
+
+.title-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  position: relative;
+  left: 12%;
+  text-align: center;
+  font-size: 12vw;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1;
+  transform: translateZ(0);
+}
+
+.inside-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0; /* Opacidad inicial para GSAP */
+  max-width: 600px;
+}
+
+.inside-content h2 {
+  font-size: 18rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.inside-content p {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+/* 4. Segunda Sección (Asegura el scroll) */
+.next-section {
+  height: 100vh;
+  background: #111;
+  padding: 2rem;
+}
+
+.contenedor-reloj {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-
-.redes-sociales img {
-  width: 40px;
-  height: 40px;
-  margin: 10px;
-  opacity: 0.6;
-}
-
-.redes-sociales img:hover {
-  opacity: 1;
-  cursor: pointer;
-  transform: scale(1.2);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 4vw;
+  color: rgb(59, 148, 244);
 }
 
 #reloj {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 5rem;
   letter-spacing: 3px;
   padding: 20px 40px;
-  border-radius: 15px; /* Un radio más pronunciado realza el efecto */
-  /* === PROPIEDADES CLAVE DEL GLASSMORFISMOS === */
-  /* 1. Fondo Semi-transparente (usamos el azul oscuro de tu fondo base) */
-  background: rgba(52, 73, 94, 0.4); /* El 0.4 es la transparencia */
-  /* 2. Desenfoque (Blur) para el efecto de "cristal esmerilado" */
+  border-radius: 15px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  /* 3. Borde muy sutil para simular el borde del cristal (opcional, pero recomendado) */
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  /* 4. Sombra para dar profundidad y levantarlo */
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
+}
+
+/* Pantallas medianas (tablets en horizontal, laptops pequeños) */
+@media screen and (max-width: 1024px) {
+  body {
+    font-size: 16px;
+    padding: 15px;
+  }
+}
+/* Pantallas pequeñas (tablets en vertical, celulares grandes) */
+@media screen and (max-width: 768px) {
+  .contenedor {
+    width: 100%;
+    height: 100vh;
+  }
+  .contenedor-central {
+    width: 100%;
+    height: 85vh;
+  }
+  .puzlle {
+    width: 35%;
+    height: 40%;
+    opacity: 0.7;
+  }
+  .img {
+    width: 45%;
+    height: 100% !important;
+  }
+  .img img {
+    width: 100%;
+    height: 90%;
+  }
+  .redes-sociales {
+    width: 15%;
+    height: 100%;
+  }
+  .contenedor-reloj {
+    margin: 5px;
+    width: 80%;
+    height: 15vh;
+  }
+  #reloj {
+    width: 100%;
+    height: 60%;
+    font-size: 3rem;
+    color: #e88888;
+    letter-spacing: 3px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    background: rgba(52, 73, 94, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
