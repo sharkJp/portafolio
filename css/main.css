@@ -38,14 +38,30 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   padding: 20px;
   box-sizing: border-box;
 }
 
-.panel-fijo img {
-  max-width: 100%;
+.redes-sociales {
+  position: relative;
+  margin-top: -10%;
+  display: flex;
+  width: 90%;
   height: auto;
-  object-fit: contain;
+  left: 18%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.redes-sociales img {
+  width: 30px;
+}
+
+.redes-sociales img:hover {
+  transform: scale(1.2);
 }
 
 /* 2. Contenedor del Scroll (Derecha) */
@@ -159,22 +175,26 @@ body {
   .inside-content h2 {
     position: absolute;
     margin-top: -35%;
+    margin-left: 10%;
     font-size: 10rem;
   }
   .inside-content p {
     width: 100%;
     font-size: 1.6rem;
     margin-top: 10%;
-    margin-left: 18%;
+    margin-left: 20%;
   }
   .contenedor-reloj {
     position: absolute;
     width: 52%;
     margin-top: 80%;
-    margin-left: 45%;
+    margin-left: 48%;
   }
   #reloj {
     font-size: 1.8rem;
+  }
+  .redes-sociales {
+    top: -2%;
   }
 }
 
