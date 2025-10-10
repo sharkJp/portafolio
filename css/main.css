@@ -43,20 +43,28 @@ body {
   box-sizing: border-box;
 }
 
-model-viewer  {
+.panel-fijo img {
+  margin-top: -65%;
+  width: 100%;
+  height: auto;
+}
+
+model-viewer {
   flex: 1;
   width: 40vh;
 }
+
 model-viewer::part(scene) {
   height: 100%;
 }
+
 .redes-sociales {
   position: relative;
-  top: 20%;
+  top: 5%;
   display: flex;
   width: 90%;
   height: auto;
-  left: 18%;
+  left: 5%;
   justify-content: center;
   align-items: center;
   flex-direction: row;
