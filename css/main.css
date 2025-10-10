@@ -52,7 +52,6 @@ body {
 model-viewer {
   flex: 1;
   width: 40vh;
-  background-color: #fd7f24;
 }
 
 model-viewer::part(scene) {
