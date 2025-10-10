@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+  
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sitio en Construcción</title>
@@ -15,8 +17,16 @@
 
   <body>
     <aside class="panel-fijo">
-      <img src="./assets/images/jhonge2.png" alt="Imagen Fija" />
-          <div class="redes-sociales">
+      <!-- <img src="./assets/images/jhonge2.png" alt="Imagen Fija" /> -->
+         
+       <model-viewer  
+                   class="segunda-img-secc3"   
+                   src="./assets/images/jhon.glb" 
+                   alt="Modelo 3D de mi personaje"
+                  shadow-intensity="1" 
+                  camera-controls auto-rotate ar
+              ></model-viewer>
+      <div class="redes-sociales">
       <img src="./assets/images/face.svg" alt="" />
       <img src="./assets/images/youtube.svg" alt="" />
       <img src="./assets/images/whas.svg" alt="" />
